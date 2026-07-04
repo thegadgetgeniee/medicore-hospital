@@ -22,9 +22,9 @@ export default function LoginPage() {
     e.preventDefault()
     setLoading(true); setError('')
     const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) { setError(error.message); setLoading(false); return }
-    router.push('/dashboard')
-    router.refresh()
+if (error) { setError(error.message); setLoading(false); return }
+setLoading(false)
+window.location.href = '/dashboard'
   }
 
   async function handleSignup(e: React.FormEvent) {
